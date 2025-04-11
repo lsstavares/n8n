@@ -91,7 +91,7 @@ const isEnterprise = computed(
 	() => settingsStore.isQueueModeEnabled && settingsStore.isWorkerViewAvailable,
 );
 const showGitHubButton = computed(
-	() => !isEnterprise.value && !settingsStore.settings.inE2ETests && !githubButtonHidden.value,
+	() => false, //!isEnterprise.value && !settingsStore.settings.inE2ETests && !githubButtonHidden.value,
 );
 
 watch(route, (to, from) => {

@@ -138,9 +138,9 @@ const sidebarMenuItems = computed<IMenuItem[]>(() => {
 			</template>
 			<template #menuSuffix>
 				<div :class="$style.versionContainer">
-					<n8n-link size="small" @click="uiStore.openModal(ABOUT_MODAL_KEY)">
+					<!-- <n8n-link size="small" @click="uiStore.openModal(ABOUT_MODAL_KEY)">
 						{{ i18n.baseText('settings.version') }} {{ rootStore.versionCli }}
-					</n8n-link>
+					</n8n-link> -->
 				</div>
 			</template>
 		</n8n-menu>
