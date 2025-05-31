@@ -1,10 +1,12 @@
+import { Logger } from '@n8n/backend-common';
 import type { CredentialsEntity } from '@n8n/db';
 import type { User } from '@n8n/db';
+import { CredentialsRepository } from '@n8n/db';
 import { Container } from '@n8n/di';
 import Csrf from 'csrf';
 import type { Response } from 'express';
 import { captor, mock } from 'jest-mock-extended';
-import { Cipher, type InstanceSettings, Logger } from 'n8n-core';
+import { Cipher, type InstanceSettings } from 'n8n-core';
 import type { IWorkflowExecuteAdditionalData } from 'n8n-workflow';
 import nock from 'nock';
 
@@ -12,7 +14,6 @@ import { Time } from '@/constants';
 import { OAuth1CredentialController } from '@/controllers/oauth/oauth1-credential.controller';
 import { CredentialsFinderService } from '@/credentials/credentials-finder.service';
 import { CredentialsHelper } from '@/credentials-helper';
-import { CredentialsRepository } from '@/databases/repositories/credentials.repository';
 import { VariablesService } from '@/environments.ee/variables/variables.service.ee';
 import { BadRequestError } from '@/errors/response-errors/bad-request.error';
 import { NotFoundError } from '@/errors/response-errors/not-found.error';

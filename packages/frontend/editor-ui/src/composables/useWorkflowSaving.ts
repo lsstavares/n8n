@@ -2,7 +2,7 @@ import { useNpsSurveyStore } from '@/stores/npsSurvey.store';
 import { useUIStore } from '@/stores/ui.store';
 import type { NavigationGuardNext, useRouter } from 'vue-router';
 import { useMessage } from './useMessage';
-import { useI18n } from '@/composables/useI18n';
+import { useI18n } from '@n8n/i18n';
 import {
 	MODAL_CANCEL,
 	MODAL_CLOSE,
@@ -32,9 +32,8 @@ export function useWorkflowSaving({ router }: { router: ReturnType<typeof useRou
 			cancel?: () => Promise<void>;
 		} = {},
 	) {
-		if (!uiStore.stateIsDirty) {
+		if (!uiStore.stateIsDirty || workflowsStore.workflow.isArchived) {
 			next();
-
 			return;
 		}
 
